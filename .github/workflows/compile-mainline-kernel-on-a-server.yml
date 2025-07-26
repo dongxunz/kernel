@@ -13,12 +13,12 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "dongxunz"
+        default: "dongxunz/linux-6.12.y"
         type: choice
         options:
           - unifreq
           - codesnas
-          - dongxunz
+          - dongxunz/linux-6.12.y
       kernel_version:
         description: "Select kernel version"
         required: false
