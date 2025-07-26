@@ -13,15 +13,16 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "unifreq"
+        default: "dongxunz"
         type: choice
         options:
           - unifreq
           - codesnas
+          - dongxunz
       kernel_version:
         description: "Select kernel version"
         required: false
-        default: "5.4.y"
+        default: "6.12.y"
         type: choice
         options:
           - 5.4.y
@@ -81,10 +82,11 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-dongxunz"
         type: choice
         options:
           - -ophub
+          - -dongxunz
           - -yourname
 
 env:
