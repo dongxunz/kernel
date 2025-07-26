@@ -151,10 +151,18 @@ jobs:
           # ln -sf /builder/kernel /home/runner/work/_actions/dongxunz/amlogic-s9xxx-armbian/main/compile-kernel/kernel
           # ln -sf /builder/output /home/runner/work/_actions/dongxunz/amlogic-s9xxx-armbian/main/compile-kernel/output
           
-          REPO_OWNER="dongxunz"  # 改为您的实际用户名
-          ACTION_PATH="/home/runner/work/_actions/${REPO_OWNER}/amlogic-s9xxx-armbian/main/compile-kernel"
-          ln -sf /builder/kernel "${ACTION_PATH}/kernel"
-          ln -sf /builder/output "${ACTION_PATH}/output"
+          # REPO_OWNER="dongxunz"  # 改为您的实际用户名
+          # ACTION_PATH="/home/runner/work/_actions/${REPO_OWNER}/amlogic-s9xxx-armbian/main/compile-kernel"
+          # ln -sf /builder/kernel "${ACTION_PATH}/kernel"
+          # ln -sf /builder/output "${ACTION_PATH}/output"
+
+          # 修复：创建完整路径
+          TARGET_DIR="/home/runner/work/_actions/dongxunz/amlogic-s9xxx-armbian/main/compile-kernel"
+          mkdir -p ${TARGET_DIR}
+          # ln -sf /builder/build ${TARGET_DIR}/build
+          ln -sf /builder/kernel ${TARGET_DIR}/kernel
+          ln -sf /builder/output ${TARGET_DIR}/output
+    
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Compile the kernel [ ${{ inputs.kernel_version }} ]
